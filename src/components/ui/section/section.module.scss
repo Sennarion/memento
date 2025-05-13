@@ -1,0 +1,14 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/vars.scss';
+
+.section {
+	height: 100vh;
+
+	@include bp($tablet, min) {
+		padding: 10rem;
+	}
+
+	@include bp($tablet - 1) {
+		padding: 6rem 4rem;
+	}
+}
