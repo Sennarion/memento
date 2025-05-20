@@ -1,0 +1,26 @@
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
+
+.title {
+	line-height: 1;
+	text-align: center;
+	text-wrap: balance;
+	color: $gray-dark;
+
+	@include bp($desktop, min) {
+		font-size: 3.4rem;
+	}
+
+	@include bp($desktop - 1) {
+		font-size: 2.4rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3.4rem;
+	}
+}
+
+.video {
+	border-radius: 2rem;
+	overflow: hidden;
+}

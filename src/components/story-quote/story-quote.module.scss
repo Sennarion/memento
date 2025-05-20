@@ -1,0 +1,32 @@
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
+
+.text {
+	text-wrap: balance;
+	line-height: 1.2;
+	text-align: center;
+	color: $gray-dark;
+
+	@include bp($desktop, min) {
+		font-size: 8rem;
+	}
+
+	@include bp($desktop - 1) {
+		font-size: 4.4rem;
+	}
+
+	&:not(:last-child) {
+		@include bp($desktop, min) {
+			margin-bottom: 4rem;
+		}
+
+		@include bp($desktop - 1) {
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.author {
+	text-align: center;
+	text-wrap: balance;
+}

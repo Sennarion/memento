@@ -2,13 +2,17 @@
 @import '@/styles/vars.scss';
 
 .section {
-	height: 100vh;
+	position: relative;
 
-	@include bp($tablet, min) {
+	@include bp($desktop, min) {
 		padding: 10rem;
 	}
 
-	@include bp($tablet - 1) {
-		padding: 6rem 4rem;
+	@include bp($desktop - 1) {
+		padding: 6rem 2rem;
+	}
+
+	&.dark {
+		background-color: $gray-light;
 	}
 }

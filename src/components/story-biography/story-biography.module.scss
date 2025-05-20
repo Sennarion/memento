@@ -1,0 +1,101 @@
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
+
+.mainTitle {
+	line-height: 1;
+	text-align: center;
+	text-wrap: balance;
+	color: $gray-dark;
+
+	@include bp($desktop, min) {
+		font-size: 3.4rem;
+	}
+
+	@include bp($desktop - 1) {
+		font-size: 2.4rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3.4rem;
+	}
+}
+
+.item {
+	border-radius: 2rem;
+
+	@include bp($desktop, min) {
+		padding: 4rem;
+	}
+
+	@include bp($desktop - 1) {
+		padding: 3rem;
+	}
+
+	&:nth-child(odd) {
+		background-color: $gray-light;
+	}
+}
+
+.content {
+	position: relative;
+
+	@include bp($desktop, min) {
+		padding-left: 4rem;
+	}
+
+	@include bp($desktop - 1) {
+		padding-left: 3rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	&::before {
+		position: absolute;
+		content: '';
+		top: 50%;
+		left: 0;
+		width: 0.8rem;
+		height: 0.8rem;
+
+		background-color: $gray;
+		border-top-right-radius: 0.4rem;
+		border-bottom-right-radius: 0.4rem;
+		transform: translateY(-50%);
+	}
+
+	&::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 0.2rem;
+		height: 100%;
+
+		background-color: $gray;
+	}
+}
+
+.title {
+	line-height: 1;
+	color: $gray-dark;
+
+	@include bp($desktop, min) {
+		font-size: 2.4rem;
+	}
+
+	@include bp($desktop - 1) {
+		font-size: 2rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 1.4rem;
+	}
+}
+
+.text {
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}

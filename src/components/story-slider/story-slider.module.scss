@@ -1,0 +1,56 @@
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
+
+.slider {
+	overflow: visible;
+}
+
+.slide {
+	position: relative;
+	aspect-ratio: 1;
+
+	border-radius: 2rem;
+	overflow: hidden;
+}
+
+.slideImage {
+	object-fit: cover;
+	transition: opacity 0.5s ease-in-out;
+
+	@include bp($desktop, min) {
+		opacity: 0;
+	}
+}
+
+.slideDate {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	padding: 1rem 2rem;
+
+	font-size: 2rem;
+	color: $white;
+
+	border-radius: 1.4rem;
+	backdrop-filter: blur(1rem);
+}
+
+.slide:global(.swiper-slide-visible) .slideImage {
+	opacity: 1 !important;
+}
+
+.slider :global(.swiper-pagination) {
+	position: absolute;
+
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
+	@include bp($desktop, min) {
+		bottom: -5rem;
+	}
+
+	@include bp($desktop - 1) {
+		bottom: -3.4rem;
+	}
+}

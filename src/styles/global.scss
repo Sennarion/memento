@@ -9,7 +9,7 @@ html {
 	font-size: 10px;
 
 	@include bp($desktop, $tablet) {
-		font-size: calc(100vw / 1024 * 10);
+		// font-size: calc(100vw / 1024 * 10);
 	}
 }
 
@@ -20,9 +20,11 @@ html {
 }
 
 body {
+	font-family: var(--font-montserrat);
 	font-size: 1.6rem;
 	font-weight: 400;
 	line-height: 1.6;
+	color: $gray;
 }
 
 img {
@@ -55,7 +57,23 @@ a {
 }
 
 .main {
+	overflow: hidden;
+}
+
+.backdrop {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	background-color: $white;
+}
+
+.logo {
+	position: relative;
+	width: 20rem;
+	height: 20rem;
 }
