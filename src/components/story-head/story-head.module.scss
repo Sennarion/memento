@@ -18,7 +18,7 @@
 
 .mainPhoto {
 	position: relative;
-	width: 30rem;
+	width: 32rem;
 	margin: 4rem auto;
 	aspect-ratio: 1;
 
@@ -57,5 +57,24 @@
 	display: flex;
 	justify-content: center;
 
+	font-size: 2.2rem;
 	text-align: center;
+
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}
+
+.position {
+	font-size: 2rem;
+	font-weight: 500;
+	text-align: center;
+
+	@include bp($desktop, min) {
+		font-size: 2.4rem;
+	}
+
+	@include bp($desktop - 1) {
+		font-size: 2rem;
+	}
 }

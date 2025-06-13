@@ -8,7 +8,11 @@
 		padding: 10rem;
 	}
 
-	@include bp($desktop - 1) {
+	@include bp($desktop - 1, $tablet_min) {
+		padding: 6rem 4rem;
+	}
+
+	@include bp($tablet_min - 1) {
 		padding: 6rem 2rem;
 	}
 

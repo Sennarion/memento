@@ -1,11 +1,67 @@
-.wrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
 
-	height: 100%;
+.content {
+	@include bp($tablet_max, min) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 4rem;
+	}
+
+	@include bp($tablet_max - 1) {
+	}
+}
+
+.info {
+	&:not(:last-child) {
+		@include bp($tablet_max - 1) {
+			margin-bottom: 4rem;
+		}
+	}
 }
 
 .title {
-	text-align: center;
+	font-weight: 500;
+	line-height: 1;
+
+	@include bp($tablet_max, min) {
+		font-size: 6rem;
+	}
+
+	@include bp($tablet_max - 1) {
+		font-size: 4rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 4rem;
+	}
+}
+
+.text {
+	&:not(:last-child) {
+		margin-bottom: 4rem;
+	}
+}
+
+.imageW {
+	position: relative;
+	flex-shrink: 0;
+	aspect-ratio: 1;
+
+	border-radius: 2rem;
+
+	overflow: hidden;
+
+	@include bp($tablet_max, min) {
+		width: 50%;
+	}
+
+	@include bp($tablet_max - 1) {
+		width: 100%;
+	}
+}
+
+.image {
+	object-fit: cover;
 }

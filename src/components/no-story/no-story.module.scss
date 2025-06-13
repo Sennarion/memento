@@ -1,0 +1,36 @@
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
+
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@include bp($desktop, min) {
+		height: calc(100dvh - 20rem);
+	}
+
+	@include bp($desktop - 1) {
+		height: calc(100dvh - 12rem);
+	}
+}
+
+.logo {
+	position: relative;
+
+	flex-shrink: 0;
+	display: block;
+	width: 20rem;
+	height: 20rem;
+}
+
+.text {
+	font-size: 2.4rem;
+	font-weight: 400;
+	text-align: center;
+
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}

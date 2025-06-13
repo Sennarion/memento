@@ -29,8 +29,8 @@ export default function StorySlider({ photos }) {
 					loop
 					pagination={{ clickable: false }}
 					coverflowEffect={{
-						rotate: 20,
-						stretch: 0,
+						rotate: 30,
+						stretch: 20,
 						depth: 100,
 						modifier: 1,
 						slideShadows: false,

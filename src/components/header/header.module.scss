@@ -1,0 +1,104 @@
+@import '@/styles/vars.scss';
+@import '@/styles/mixins.scss';
+
+.header {
+	display: flex;
+	align-items: center;
+	height: 12rem;
+	z-index: 100;
+
+	@include bp($tablet_max, min) {
+		padding: 2rem 10rem;
+	}
+
+	@include bp($tablet_max - 1) {
+		padding: 2rem 4rem;
+	}
+}
+
+.headerContent {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logoWrapper {
+	position: relative;
+
+	flex-shrink: 0;
+	display: block;
+	width: 8rem;
+	height: 8rem;
+}
+
+.navWrapper {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+
+	@include bp($tablet_max - 1) {
+		display: none;
+	}
+}
+
+.navList {
+	display: flex;
+	gap: 4rem;
+}
+
+.navLink {
+	padding: 1rem;
+
+	text-transform: uppercase;
+	color: $gray-dark;
+
+	transition: color 0.2s ease-in-out;
+
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+
+	&.active {
+		color: $gray;
+	}
+}
+
+.activeNavLink {
+	padding: 1rem;
+
+	text-transform: uppercase;
+	color: $gray;
+}
+
+.icons {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.iconLink {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+
+	color: $gray-dark;
+
+	svg {
+		display: block;
+	}
+
+	transition: color 0.2s ease-in-out;
+
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+}
+
+.mobileNavWrapper {
+	@include bp($tablet_max, min) {
+		display: none;
+	}
+}

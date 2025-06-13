@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { fetchStory } from '@/utils/fetchStory';
+import NoStory from '@/components/no-story/no-story';
 import StoryHead from '@/components/story-head/story-head';
 import StoryVideo from '@/components/story-video/story-video';
 import StoryQuote from '@/components/story-quote/story-quote';
@@ -30,6 +32,10 @@ export default async function StoryPage({ params }) {
 
 	if (!data) {
 		notFound();
+	}
+
+	if (!data.info.activated) {
+		return <NoStory />;
 	}
 
 	return (

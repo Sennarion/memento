@@ -1,4 +1,5 @@
-import { montserrat } from '@/fonts/fonts';
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
 import 'modern-normalize/modern-normalize.css';
 import '@/styles/global.scss';
 
@@ -10,10 +11,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html className={montserrat.className} lang="uk">
-			<body>
-				<main className="main">{children}</main>
-			</body>
-		</html>
+		<>
+			<Header />
+			<main className="main">{children}</main>
+			<Footer />
+		</>
 	);
 }

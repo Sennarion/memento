@@ -31,6 +31,7 @@ export default function StoryHead({ data }) {
 				<div className={styles.years}>
 					{data.yearsOfLife.birthday} - {data.yearsOfLife.death}
 				</div>
+				{data.position && <div className={styles.position}>{data.position}</div>}
 			</Container>
 		</Section>
 	);

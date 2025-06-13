@@ -8,8 +8,8 @@ html {
 
 	font-size: 10px;
 
-	@include bp($desktop, $tablet) {
-		// font-size: calc(100vw / 1024 * 10);
+	@include bp($mobile - 1) {
+		font-size: calc(100vw / 375 * 10);
 	}
 }
 
@@ -57,6 +57,7 @@ a {
 }
 
 .main {
+	min-height: 100vh;
 	overflow: hidden;
 }
 
