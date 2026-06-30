@@ -116,5 +116,20 @@
 	}
 }
 
-.text {
+.iconW {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	z-index: -1;
+
+	width: 26rem;
+	height: 26rem;
+	opacity: 0.2;
 }
+
+.icon {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+

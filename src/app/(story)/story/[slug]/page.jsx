@@ -1,12 +1,12 @@
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { fetchStory } from '@/utils/fetchStory';
-import NoStory from '@/components/no-story/no-story';
+import ErrorMessage from '@/components/error-message/error-message';
 import StoryHead from '@/components/story-head/story-head';
-import StoryVideo from '@/components/story-video/story-video';
+import StoryTabs from '@/components/story-tabs/story-tabs';
+import StoryAchievements from '@/components/story-achievements/story-achievements';
 import StoryQuote from '@/components/story-quote/story-quote';
-import StorySlider from '@/components/story-slider/story-slider';
-import StoryBiography from '@/components/story-biography/story-biography';
+import StoryLinks from '@/components/story-links/story-links';
+import StoryCta from '@/components/story-cta/story-cta';
 
 export async function generateMetadata({ params }) {
 	const { slug } = await params;
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
 	}
 
 	return {
-		title: `${data.name.text || 'Memento'} – Історія життя людини`,
+		title: `${data.name || 'Memento'} – Історія життя людини`,
 		description:
 			'Memento – сучасний спосіб вшанувати памʼять про близьких. Меморіальні таблички з QR-кодами ведуть до цифрових сторінок із фото, історією життя та спогадами.',
 	};
@@ -35,16 +35,17 @@ export default async function StoryPage({ params }) {
 	}
 
 	if (!data.info.activated) {
-		return <NoStory />;
+		return <ErrorMessage error="Ця історія ще не активована" />;
 	}
 
 	return (
 		<>
-			<StoryHead data={data} />
-			<StoryVideo video={data.video} />
-			<StoryQuote quote={data.quote} />
-			<StorySlider photos={data.photos} />
-			<StoryBiography biography={data.biography} />
+			<StoryHead data={data} slug={slug} />
+			<StoryTabs data={data} />
+			<StoryAchievements achievements={data.achievements} />
+				<StoryQuote quote={data.quote} />
+		<StoryLinks links={data.links} />
+			<StoryCta />
 		</>
 	);
 }

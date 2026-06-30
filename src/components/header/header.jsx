@@ -1,78 +1,96 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Sling as Hamburger } from 'hamburger-react';
+import navItems from '@/data/nav.json';
 import styles from './header.module.scss';
-import Container from '../ui/container/container';
-import MobileMenu from '../mobile-menu/mobile-menu';
-import { BsTelephoneFill } from 'react-icons/bs';
-
-const navItems = [
-	{ title: 'головна', href: '/' },
-	{ title: 'про нас', href: '/about' },
-];
 
 export default function Header() {
-	const pathname = usePathname();
-
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-	const toggleMenu = () => {
-		setIsMenuOpen((prev) => !prev);
-	};
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [activeSection, setActiveSection] = useState('');
 
 	useEffect(() => {
-		if (isMenuOpen) {
-			document.documentElement.style.overflow = 'hidden';
-			return;
-		}
+		const navIds = navItems.map(({ href }) => href.replace('#', ''));
+		const allIds = [...navIds, 'contact'];
+		const sections = allIds.map((id) => document.getElementById(id)).filter(Boolean);
 
-		document.documentElement.style.overflow = 'auto';
-	}, [isMenuOpen]);
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const id = '#' + entry.target.id;
+						setActiveSection(navIds.includes(entry.target.id) ? id : '');
+					}
+				});
+			},
+			{ rootMargin: '-30% 0px -65% 0px', threshold: 0 }
+		);
+
+		sections.forEach((el) => observer.observe(el));
+		return () => observer.disconnect();
+	}, []);
+
+	useEffect(() => {
+		document.body.style.overflow = menuOpen ? 'hidden' : '';
+		return () => { document.body.style.overflow = ''; };
+	}, [menuOpen]);
 
 	return (
-		<header className={styles.header}>
-			<Container>
-				<div className={styles.headerContent}>
-					<Link href="/" className={styles.logoWrapper}>
-						<Image className={styles.logo} src="/logo.png" alt="Memento Logo" quality={100} fill />
+		<>
+			<header className={styles.header}>
+				<div className={styles.inner}>
+					<Link href="/" className={styles.logo}>
+						<span className={styles.logoIcon} aria-hidden="true">
+							<span className={styles.logoIconBorder} />
+							<span className={styles.logoIconQr}>
+								<span className={styles.logoIconDot} />
+							</span>
+						</span>
+						<span className={styles.logoText}>MEMENTO</span>
 					</Link>
-					<div className={styles.navWrapper}>
-						<nav className={styles.nav}>
-							<ul className={styles.navList}>
-								{navItems.map(({ title, href }) => (
-									<li className={styles.navItem} key={title}>
-										<Link
-											className={classNames(styles.navLink, {
-												[styles.active]: pathname === href,
-											})}
-											href={href}
-										>
-											{title}
-										</Link>
-									</li>
-								))}
-							</ul>
-						</nav>
-						<ul className={styles.icons}>
-							<li className={styles.icon}>
-								<a className={styles.iconLink} href="tel:+380990648414">
-									<BsTelephoneFill />
-									(099) 064 84 14
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div className={styles.mobileNavWrapper}>
-						<Hamburger size={20} toggled={isMenuOpen} onToggle={toggleMenu} color="#b07507" rounded />
-					</div>
+
+					<nav className={styles.nav} aria-label="Навігація">
+						{navItems.map(({ title, href }) => (
+							<a
+								key={href}
+								href={href}
+								className={`${styles.navLink} ${activeSection === href ? styles.active : ''}`}
+							>
+								{title}
+							</a>
+						))}
+					</nav>
+
+					<a href="#contact" className={styles.cta}>Залишити заявку</a>
+
+					<button
+						className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
+						onClick={() => setMenuOpen((p) => !p)}
+						aria-label="Меню"
+						aria-expanded={menuOpen}
+					>
+						<span /><span /><span />
+					</button>
 				</div>
-			</Container>
-			<MobileMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-		</header>
+			</header>
+
+			<div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`} aria-hidden={!menuOpen}>
+				<nav className={styles.mobileNav}>
+					{navItems.map(({ title, href }) => (
+						<a
+							key={href}
+							href={href}
+							className={`${styles.mobileNavLink} ${activeSection === href ? styles.active : ''}`}
+							onClick={() => setMenuOpen(false)}
+						>
+							{title}
+						</a>
+					))}
+				</nav>
+				<a href="#contact" className={styles.mobileCta} onClick={() => setMenuOpen(false)}>
+					Залишити заявку
+				</a>
+			</div>
+		</>
 	);
 }

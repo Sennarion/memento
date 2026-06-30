@@ -1,5 +1,7 @@
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
+import { PackageProvider } from '@/context/package';
+import ScrollReveal from '@/components/scroll-reveal/scroll-reveal';
 import 'modern-normalize/modern-normalize.css';
 import '@/styles/global.scss';
 
@@ -11,10 +13,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<>
+		<PackageProvider>
+			<ScrollReveal />
 			<Header />
 			<main className="main">{children}</main>
 			<Footer />
-		</>
+		</PackageProvider>
 	);
 }

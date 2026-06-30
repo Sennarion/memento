@@ -1,17 +1,20 @@
-import { montserrat } from '@/fonts/fonts';
+import { cinzel, cormorant, manrope } from '@/fonts/fonts';
 import 'modern-normalize/modern-normalize.css';
 import '@/styles/global.scss';
 
 export const metadata = {
-	title: 'Memento – Збережіть памʼять про людину',
+	title: 'MEMENTO – Меморіальні таблички з QR-кодом',
 	description:
-		'Memento – сучасний спосіб вшанувати памʼять про близьких. Виготовляємо меморіальні таблички з QR-кодами, що ведуть до цифрових сторінок із фото, історією життя та спогадами. Збережіть памʼять назавжди.',
+		'Сталеві QR-таблички, що зберігають память про дорогих людей — у відео, фото й теплих словах. Виготовляємо та доставляємо по всій Україні.',
 };
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="uk">
-			<body className={montserrat.className}>{children}</body>
+		<html
+			lang="uk"
+			className={`${cinzel.variable} ${cormorant.variable} ${manrope.variable}`}
+		>
+			<body>{children}</body>
 		</html>
 	);
 }

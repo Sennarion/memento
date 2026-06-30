@@ -19,9 +19,21 @@
 	transition: background-color 0.2s ease, color 0.2s ease;
 	cursor: pointer;
 
+	@include bp($tablet_min - 1) {
+		padding: 1.2rem 2rem;
+		font-size: 1.4rem;
+	}
+
 	&:hover,
-	&:focus {
+	&:focus,
+	&.active {
 		background-color: $primary-dark;
 		color: $white;
+	}
+
+	&.shaped {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		box-shadow: inset 0 -0.4rem 0.6rem rgba($gray, 0.25);
 	}
 }

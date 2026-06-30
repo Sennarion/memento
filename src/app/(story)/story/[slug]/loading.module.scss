@@ -1,0 +1,146 @@
+@use '../../../../styles/vars' as *;
+@use '../../../../styles/mixins' as *;
+
+@keyframes shimmer {
+	0% { background-position: -60rem 0; }
+	100% { background-position: 60rem 0; }
+}
+
+%skeleton {
+	background: linear-gradient(90deg, #e8ede9 25%, #f0f4f1 50%, #e8ede9 75%);
+	background-size: 120rem 100%;
+	animation: shimmer 1.6s infinite linear;
+	border-radius: 0.8rem;
+}
+
+%skeletonDark {
+	background: linear-gradient(90deg, #2a2720 25%, #322f28 50%, #2a2720 75%);
+	background-size: 120rem 100%;
+	animation: shimmer 1.6s infinite linear;
+}
+
+.wrap {
+	background: $cream-2;
+	min-height: 100svh;
+}
+
+.banner {
+	@extend %skeleton;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	max-height: 52rem;
+	border-radius: 0;
+}
+
+.inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 2.4rem 5.2rem;
+	margin-top: -6rem;
+}
+
+.portraitArea {
+	position: relative;
+	display: inline-block;
+}
+
+.portrait {
+	@extend %skeleton;
+	width: 24rem;
+	height: 24rem;
+	border-radius: 50%;
+	border: 0.4rem solid $white;
+
+	@include bp($mobile_sm) {
+		width: 19rem;
+		height: 19rem;
+	}
+}
+
+.candleWidget {
+	position: absolute;
+	bottom: -3.5rem;
+	right: -3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.7rem;
+}
+
+.candleCircle {
+	@extend %skeletonDark;
+	flex-shrink: 0;
+	width: 6.4rem;
+	height: 6.4rem;
+	border-radius: 50%;
+	border: 0.25rem solid $white;
+	box-shadow: 0 0 0 0.2rem rgba(74, 107, 90, 0.18);
+}
+
+.candleText {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.candleLine {
+	@extend %skeleton;
+	width: 11rem;
+	height: 1.4rem;
+}
+
+.candleLineSm {
+	@extend %skeleton;
+	width: 8rem;
+	height: 1.1rem;
+}
+
+.line {
+	@extend %skeleton;
+}
+
+.name {
+	width: 28rem;
+	height: 4rem;
+	margin-top: 2.2rem;
+
+	@include bp($mobile_sm) {
+		width: 20rem;
+		height: 3rem;
+		margin-top: 1.6rem;
+	}
+}
+
+.position {
+	width: 18rem;
+	height: 1.4rem;
+	margin-top: 0.8rem;
+}
+
+.years {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1.4rem;
+}
+
+.yearAge {
+	@extend %skeleton;
+	width: 9rem;
+	height: 2.4rem;
+	border-radius: 99rem;
+}
+
+.yearsRow {
+	display: flex;
+	gap: 0.8rem;
+}
+
+.yearBlock {
+	@extend %skeleton;
+	width: 13rem;
+	height: 6rem;
+	border-radius: 1.4rem;
+}

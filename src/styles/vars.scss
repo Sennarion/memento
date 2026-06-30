@@ -1,14 +1,34 @@
-$black: #000000;
+$accent: #4a6b5a;
+$accent-deep: #3a5547;
+$accent-soft: #e8efe9;
+
+$cream: #f4f1ea;
+$cream-2: #fbfaf7;
+$cream-3: #f6f2ea;
+
+$dark: #1d1c1a;
+$dark-2: #191816;
+$dark-3: #161513;
+
+$text: #211f1c;
+$text-muted: #5e574e;
+$text-light: #857d72;
+
 $white: #ffffff;
-$gray: #4b4b4b;
-$gray-dark: #2b2b2b;
-$gray-light: #f5f5f5;
-$gray-light-2: #d2d2d2;
-$primary: #ed9b02;
-$primary-dark: #b07507;
+
+$border: rgba(33, 31, 28, 0.09);
+$border-light: rgba(33, 31, 28, 0.06);
+
+// Legacy vars (used by story page components)
+$primary: $accent;
+$primary-dark: $accent-deep;
+$gray: #c5bdb4;
+$gray-light: #f0ece3;
+$gray-dark: #3a352e;
 
 $desktop_xl: 1920px;
 $desktop: 1441px;
 $tablet_max: 1024px;
 $tablet_min: 768px;
-$mobile: 375px;
+$mobile: 880px;
+$mobile_sm: 560px;

@@ -1,100 +1,66 @@
-@import '@/styles/vars.scss';
-@import '@/styles/mixins.scss';
+@use '../../styles/vars' as *;
+@use '../../styles/mixins' as *;
 
-.mainTitle {
-	line-height: 1;
-	text-align: center;
-	text-wrap: balance;
-	color: $gray-dark;
+.section {
+	background: $cream-2;
+	padding: 1.6rem 2.4rem 6rem;
+}
 
-	@include bp($desktop, min) {
-		font-size: 3.4rem;
-	}
+.inner {
+	max-width: 72rem;
+	margin: 0 auto;
+}
 
-	@include bp($desktop - 1) {
-		font-size: 2.4rem;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 3.4rem;
-	}
+.list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
 }
 
 .item {
-	border-radius: 2rem;
-
-	@include bp($desktop, min) {
-		padding: 4rem;
-	}
-
-	@include bp($desktop - 1) {
-		padding: 3rem;
-	}
-
-	&:nth-child(odd) {
-		background-color: $gray-light;
-	}
+	background: $white;
+	border-radius: 1.6rem;
+	padding: 2.8rem 2.8rem 2.8rem 2.4rem;
+	border: 0.1rem solid $border;
+	box-shadow: 0 0.2rem 1.2rem rgba(33, 31, 28, 0.05);
 }
 
 .content {
+	padding-left: 2rem;
+	border-left: 0.2rem solid rgba(74, 107, 90, 0.4);
 	position: relative;
 
-	@include bp($desktop, min) {
-		padding-left: 4rem;
-	}
-
-	@include bp($desktop - 1) {
-		padding-left: 3rem;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 3rem;
-	}
-
 	&::before {
-		position: absolute;
 		content: '';
-		top: 50%;
-		left: 0;
+		position: absolute;
+		left: -0.5rem;
+		top: 0.7rem;
 		width: 0.8rem;
 		height: 0.8rem;
-
-		background-color: $gray;
-		border-top-right-radius: 0.4rem;
-		border-bottom-right-radius: 0.4rem;
-		transform: translateY(-50%);
-	}
-
-	&::after {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		width: 0.2rem;
-		height: 100%;
-
-		background-color: $gray;
+		border-radius: 50%;
+		background: $accent;
+		opacity: 0.6;
 	}
 }
 
 .title {
-	line-height: 1;
-	color: $gray-dark;
+	font-size: 2rem;
+	line-height: 1.2;
+	color: $text;
+	margin-bottom: 1.2rem;
 
-	@include bp($desktop, min) {
-		font-size: 2.4rem;
-	}
-
-	@include bp($desktop - 1) {
-		font-size: 2rem;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 1.4rem;
+	@include bp($mobile_sm) {
+		font-size: 1.7rem;
 	}
 }
 
 .text {
+	font-family: var(--font-manrope), sans-serif;
+	font-size: 1.5rem;
+	color: $text-muted;
+	line-height: 1.8;
+
 	&:not(:last-child) {
 		margin-bottom: 1rem;
 	}

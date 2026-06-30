@@ -1,0 +1,142 @@
+@use '../../styles/vars' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+	padding: 6rem 2.4rem 7.2rem;
+	background: $cream;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(74, 107, 90, 0.06) 0%, transparent 70%);
+		pointer-events: none;
+	}
+}
+
+.inner {
+	max-width: 68rem;
+	margin: 0 auto;
+	position: relative;
+}
+
+.titleWrap {
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.title {
+	font-size: 2.6rem;
+	color: $text;
+
+	@include bp($mobile_sm) {
+		font-size: 2.2rem;
+	}
+}
+
+.ornament {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	justify-content: center;
+	margin-top: 1.4rem;
+
+	span:not(.gem) {
+		flex: 1;
+		max-width: 3.6rem;
+		height: 0.1rem;
+		background: rgba(74, 107, 90, 0.35);
+	}
+}
+
+.gem {
+	width: 0.45rem;
+	height: 0.45rem;
+	background: $accent;
+	transform: rotate(45deg);
+	opacity: 0.65;
+	flex-shrink: 0;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 11.4rem;
+		top: 1rem;
+		bottom: 1rem;
+		width: 0.1rem;
+		background: linear-gradient(to bottom, rgba(74, 107, 90, 0.5) 0%, rgba(74, 107, 90, 0.1) 80%, transparent 100%);
+
+		@include bp($mobile_sm) {
+			left: 9.2rem;
+		}
+	}
+}
+
+.item {
+	display: grid;
+	grid-template-columns: 10rem 2rem 1fr;
+	align-items: start;
+	gap: 0 0.4rem;
+	padding: 0 0 2.8rem;
+	position: relative;
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+
+	@include bp($mobile_sm) {
+		grid-template-columns: 8rem 1.6rem 1fr;
+	}
+}
+
+.year {
+	font-family: var(--font-manrope), sans-serif;
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: $accent-deep;
+	line-height: 1.4;
+	letter-spacing: 0.01em;
+	justify-self: end;
+	align-self: start;
+	background: rgba(74, 107, 90, 0.1);
+	border-radius: 0.5rem;
+	padding: 0.3rem 0.6rem;
+	white-space: nowrap;
+
+	@include bp($mobile_sm) {
+		font-size: 1.05rem;
+		padding: 0.25rem 0.5rem;
+	}
+}
+
+.dot {
+	width: 1.2rem;
+	height: 1.2rem;
+	border-radius: 50%;
+	background: $accent;
+	opacity: 0.75;
+	margin-top: 0.55rem;
+	flex-shrink: 0;
+	justify-self: center;
+	border: 0.25rem solid $cream;
+	box-shadow: 0 0 0 0.25rem rgba(74, 107, 90, 0.2);
+	position: relative;
+	z-index: 1;
+}
+
+.text {
+	font-family: var(--font-manrope), sans-serif;
+	font-size: 1.45rem;
+	color: $text-muted;
+	line-height: 1.65;
+	padding-top: 0.25rem;
+}

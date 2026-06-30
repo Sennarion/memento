@@ -1,0 +1,48 @@
+@use '../../styles/vars' as *;
+
+.strip {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	padding: 1.8rem 2.4rem;
+	border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
+	background: #161513;
+}
+
+.text {
+	font-family: var(--font-manrope), sans-serif;
+	font-size: 1.2rem;
+	color: #6f675d;
+}
+
+.link {
+	font-family: var(--font-cinzel), serif;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #e7e1d6;
+	letter-spacing: 0.2rem;
+	transition: color 0.18s;
+
+	&:hover {
+		color: $accent;
+	}
+}
+
+.dot {
+	color: #6f675d;
+	font-size: 1.2rem;
+}
+
+.order {
+	font-family: var(--font-manrope), sans-serif;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: $accent;
+	transition: opacity 0.18s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}

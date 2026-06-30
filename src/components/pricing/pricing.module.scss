@@ -1,0 +1,327 @@
+@use '@/styles/vars' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+	background: linear-gradient(180deg, #fcfbf8, #f7f3ec);
+	border-top: 0.1rem solid rgba(33, 31, 28, 0.09);
+	box-shadow: inset 0 0.1rem 0 rgba(255, 255, 255, 0.8);
+	position: relative;
+	overflow: hidden;
+}
+
+.grid_bg {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0.55;
+	background-image: repeating-linear-gradient(135deg, rgba(33, 31, 28, 0.022) 0, rgba(33, 31, 28, 0.022) 0.1rem, transparent 0.1rem, transparent 1.1rem);
+}
+
+.blob {
+	animation: mem-drift2 24s ease-in-out infinite;
+	position: absolute;
+	bottom: -18rem;
+	left: -14rem;
+	width: 50rem;
+	height: 50rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, $accent-soft, transparent 68%);
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.inner {
+	position: relative;
+	max-width: 118rem;
+	margin: 0 auto;
+	padding: clamp(6.4rem, 8vw, 10.8rem) 2.4rem;
+}
+
+.head {
+	text-align: center;
+	max-width: 62rem;
+	margin: 0 auto;
+}
+
+.diamond {
+	width: 0.8rem;
+	height: 0.8rem;
+	background: $accent;
+	transform: rotate(45deg);
+	margin: 0 auto 1.6rem;
+}
+
+.label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.2rem;
+	font-size: 1.3rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: $accent;
+}
+
+.labelLine {
+	width: 2.4rem;
+	height: 0.1rem;
+	background: currentColor;
+	opacity: 0.5;
+}
+
+.title {
+	font-family: var(--font-cormorant), serif;
+	font-size: clamp(3rem, 4.2vw, 4.8rem);
+	font-weight: 600;
+	line-height: 1.08;
+	letter-spacing: -0.01em;
+	margin: 1.4rem 0 0;
+	color: #1c1a17;
+}
+
+.subtitle {
+	font-size: 1.6rem;
+	line-height: 1.6;
+	color: #6b635a;
+	margin: 1.4rem 0 0;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2.2rem;
+	margin-top: clamp(4rem, 5vw, 5.6rem);
+	align-items: stretch;
+
+	@include bp($mobile) {
+		grid-template-columns: 1fr;
+		max-width: 42rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 3.2rem 2.8rem;
+	border-radius: 2rem;
+	transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+	&:hover {
+		transform: translateY(-0.6rem);
+	}
+}
+
+.cardBase {
+	background: #f9f7f3;
+	border: 0.1rem solid rgba(33, 31, 28, 0.1);
+	box-shadow: 0 1.8rem 4.4rem -2.8rem rgba(0, 0, 0, 0.25);
+}
+
+.cardPopular {
+	background: #1c1b19;
+	border: 0.1rem solid rgba(159, 192, 171, 0.35);
+	box-shadow:
+		0 3rem 5.6rem -2.8rem rgba(0, 0, 0, 0.7),
+		0 0 0 0.1rem rgba(159, 192, 171, 0.12),
+		inset 0 0.1rem 0 rgba(159, 192, 171, 0.12);
+}
+
+.popularBadge {
+	position: absolute;
+	top: -1.3rem;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.6rem 1.6rem;
+	border-radius: 99.9rem;
+	background: $accent;
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	box-shadow: 0 1rem 2.2rem -1.2rem rgba(74, 107, 90, 0.85);
+}
+
+.cardIconWrap {
+	width: 4.6rem;
+	height: 4.6rem;
+	border-radius: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+	background: rgba(33, 31, 28, 0.06);
+	border: 0.1rem solid rgba(33, 31, 28, 0.08);
+}
+
+.cardIconQr {
+	width: 1.8rem;
+	height: 1.8rem;
+	border: 0.25rem solid #33302b;
+	border-radius: 0.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cardIconQrPopular {
+	border-color: rgba(205, 198, 186, 0.8);
+}
+
+.cardIconDot {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 0.15rem;
+	background: $accent;
+}
+
+.cardTag {
+	font-size: 1.3rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #857d72;
+}
+
+.cardTagPopular {
+	color: #9fc0ab;
+}
+
+.cardName {
+	font-family: var(--font-cormorant), serif;
+	font-size: 3rem;
+	font-weight: 500;
+	margin: 1.4rem 0 0;
+	color: #1c1a17;
+}
+
+.cardNamePopular {
+	color: #f6f2ea;
+}
+
+.cardPriceRow {
+	display: flex;
+	align-items: baseline;
+	gap: 0.6rem;
+	margin-top: 1.8rem;
+}
+
+.cardPrice {
+	font-size: 4rem;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: #1c1a17;
+}
+
+.cardPricePopular {
+	color: #f6f2ea;
+}
+
+.cardCurrency {
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: #1c1a17;
+}
+
+.cardCurrencyPopular {
+	color: #f6f2ea;
+}
+
+.cardSub {
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.4;
+	color: #857d72;
+	margin-top: 0.9rem;
+}
+
+.cardSubPopular {
+	color: #6a7f72;
+}
+
+.cardDivider {
+	height: 0.1rem;
+	background: rgba(33, 31, 28, 0.1);
+	margin: 2.2rem 0;
+}
+
+.cardDividerPopular {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.cardFeatures {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.3rem;
+	flex: 1;
+}
+
+.cardFeature {
+	display: flex;
+	gap: 1.1rem;
+	align-items: flex-start;
+}
+
+.cardCheck {
+	margin-top: 0.2rem;
+	color: $accent;
+	flex: none;
+}
+
+.cardCheckPopular {
+	color: #9fc0ab;
+}
+
+.cardFeat {
+	font-size: 1.45rem;
+	line-height: 1.5;
+	color: #5e574e;
+}
+
+.cardFeatPopular {
+	color: #c5bdb4;
+}
+
+.cardCta {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 2.8rem;
+	padding: 1.4rem;
+	border-radius: 1.2rem;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: opacity 0.2s;
+
+	&:hover {
+		opacity: 0.88;
+	}
+}
+
+.cardCtaBase {
+	background: rgba(33, 31, 28, 0.05);
+	color: #1c1a17;
+	border: 0.1rem solid rgba(33, 31, 28, 0.14);
+	transition: background 0.2s, border-color 0.2s;
+
+	&:hover {
+		background: rgba(74, 107, 90, 0.08);
+		border-color: rgba(74, 107, 90, 0.35);
+		opacity: 1;
+	}
+}
+
+.cardCtaPopular {
+	background: $accent;
+	color: #fff;
+	border: none;
+}

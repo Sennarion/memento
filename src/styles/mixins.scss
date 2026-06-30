@@ -1,11 +1,9 @@
-@import './vars.scss';
-
 @mixin bp($width, $value: max) {
-	@if $value ==min {
+	@if $value == min {
 		@media screen and (min-width: $width) {
 			@content;
 		}
-	} @else if $value ==max {
+	} @else if $value == max {
 		@media screen and (max-width: $width) {
 			@content;
 		}

@@ -1,0 +1,39 @@
+@use '../../styles/vars' as *;
+
+.wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 2.8rem 2.4rem 2.8rem;
+	background: $cream-2;
+}
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: var(--font-manrope), sans-serif;
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: $text-light;
+	background: $white;
+	border: 0.1rem solid $border;
+	border-radius: 10rem;
+	padding: 0.7rem 1.4rem 0.7rem 1.6rem;
+	text-decoration: none;
+	transition: color 0.18s, border-color 0.18s;
+
+	svg {
+		width: 1.2rem;
+		height: 1.2rem;
+		flex-shrink: 0;
+		opacity: 0.5;
+	}
+
+	&:hover {
+		color: $accent;
+		border-color: rgba(74, 107, 90, 0.3);
+	}
+}

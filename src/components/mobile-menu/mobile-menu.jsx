@@ -5,11 +5,7 @@ import classNames from 'classnames';
 import styles from './mobile-menu.module.scss';
 import { BsTelephoneFill } from 'react-icons/bs';
 import { IoMdMail } from 'react-icons/io';
-
-const navItems = [
-	{ title: 'головна', href: '/' },
-	{ title: 'про нас', href: '/about' },
-];
+import navItems from '@/data/nav.json';
 
 export default function MobileMenu({ isMenuOpen, setIsMenuOpen }) {
 	const pathname = usePathname();
